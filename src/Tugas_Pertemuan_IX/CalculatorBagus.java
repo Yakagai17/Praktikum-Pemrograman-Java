@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Tugas_Pertemuan_IX;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,21 +17,32 @@ public class CalculatorBagus implements CalculatorAdvanceService{
     public double Akar(double x) {
         double hasil = 0;
         try {
-            hasil = Math.sqrt(x);
-        } catch (ArithmeticException | NumberFormatException e){
-            System.out.println("Error : "+e.getMessage());
+            if (x==0) {
+                throw new Exception_Zero_Number("Masukan angka selain 0 ");
+            }
+        } catch (Exception_Zero_Number e){
+            Logger.getLogger(CalculatorTest.class.getName()).log(Level.SEVERE, null, e);
         }
+        hasil = Math.sqrt(x);
+        
         return hasil;    }
 
     @Override
     public double Pangkat(double x, double y) {
         double hasil = 0;
+        
+        
+        
         try {
-            hasil = Math.pow(x, y);
-        } catch (ArithmeticException | NumberFormatException e){
-            System.out.println("Error : "+e.getMessage());
-
+            if ((x==0)&&(y==0)) {
+            throw new Exception_Zero_Number("Masukan angka selain 0 ");
+            }       
+        } catch (Exception_Zero_Number e){
+            Logger.getLogger(CalculatorTest.class.getName()).log(Level.SEVERE, null, e);
         }
+                
+        hasil = Math.pow(x, y);
+        
         return hasil;
     }
 
