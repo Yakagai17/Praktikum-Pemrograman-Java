@@ -21,17 +21,9 @@ public class CalculatorTest {
         
         do {
             menu_calculator();
-            
-            try {
-              pil = input.nextInt();  
-            } catch (NumberFormatException e) {
-                System.out.println("Masukan Angka");
-            } finally{
-                menu_calculator();
-                pil = input.nextInt();
-            }
+            pil = input.nextInt();  
 
-       
+            
             switch (pil) {
                 case 1:
                     System.out.print("Masukan nilai ke-1 : ");
@@ -80,13 +72,13 @@ public class CalculatorTest {
                         case 3:
                             break;
                         default:
-                            System.out.println("Masukan Pilihan [1..3]");
+                            System.out.println("Masukan Pilihan [1...3]");
                     }
                     break;
                 case 6:
                     break;
                 default:
-                    System.out.println("Masukan Pilihan [1..6]");
+                    System.out.println("Masukan Pilihan [1...6]");
             }
             
         } while (pil!=6);
